@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: mc-alts-bot
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: AUTO_JOIN
+        value: "true"
+      - key: ACCOUNTS
+        value: serphut,serphut1,serphut2,serphut3
+      - key: RECONNECT
+        value: "true"
+      - key: DATA_DIR
+        value: data
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: DISCORD_GUILD_ID
+        sync: false
